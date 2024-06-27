@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linear Equation Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .container input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        .container button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Linear Equation Calculator</h2>
+    <label for="m">Enter M:</label>
+    <input type="number" id="m" placeholder="Enter M">
+    <label for="x">Enter X:</label>
+    <input type="number" id="x" placeholder="Enter X">
+    <label for="c">Enter C:</label>
+    <input type="number" id="c" placeholder="Enter C">
+    <button onclick="calculateY()">Calculate Y</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateY() {
+    // Get the input values
+    const m = parseFloat(document.getElementById('m').value);
+    const x = parseFloat(document.getElementById('x').value);
+    const c = parseFloat(document.getElementById('c').value);
+
+    // Validate inputs
+    if (isNaN(m) || isNaN(x) || isNaN(c)) {
+        alert("Please enter valid numbers for M, X, and C.");
+        return;
+    }
+
+    // Calculate Y using the formula Y = MX + C
+    const y = (m * x) + c;
+
+    // Display the result
+    document.getElementById('result').innerText = `Y = ${y}`;
+}
+</script>
+ 
+</body>
+</html>
